@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPage">
+
+<section layout:fragment="layoutpage">
+	<link rel="stylesheet" type="text/css" href="/css/HomePage.css" />
+	<link rel="stylesheet" type="text/css" href="/css/Livros.css" />
+	<link rel="stylesheet" type="text/css" href="/css/LayoutPage.css" />
+	
+	<title>livros</title>
+
+	<body style="background-color: white">
+ 	
+		<form class="form-inline" method="POST" th:action="@{/livros}" th:object="${livro}">
+					<div class="form-group">
+						<input type="text" class="form-control"	placeholder="Título" th:field="*{titulo}"> </input>
+						<input type="text" class="form-control" placeholder="Autor" th:field="*{autor}"> </input>
+						<button type="submit" class="btn btn-primary">Adicionar</button>
+					</div>
+		</form>
+	
+		<div class="big-container">
+ 			<tbody>
+				<tr th:each="livro : ${livros}">
+				<div class="row">
+					<div class="small-row">
+						<div class="livros-styles">
+							<p>Curso: <td name="titulo" th:text="${livro.titulo}"></td></p>
+							<p>Descrição: <td name="autor" th:text="${livro.autor}"></td></p>
+							<button class="register-button">
+							<a th:href="@{/livros/delete/} + ${livro.id}" class="glyphicon glyphicon-trash">Remover Livro</a>
+							</button>
+						</div>
+					</div>
+				</div>
+				</tr>
+			</tbody>
+		</div>
+	</body>
+</section>
+</html>

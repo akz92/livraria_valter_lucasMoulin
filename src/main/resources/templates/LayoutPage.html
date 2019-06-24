@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+
+</head>
+<body>
+
+      
+<nav class="navbar navbar-default" role="navigation"> 
+        <div class="navbar-header">
+	        <div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a th:href='@{/}'>Home</a></li>
+						<li><a th:href='@{/livros}'>Livros</a></li>
+					</ul>
+			</div>
+      	</div>
+</nav>
+
+
+	<section layout:fragment="layoutpage"></section>
+
+</body>
+</html>
+
+
+
